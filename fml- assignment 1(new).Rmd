@@ -1,0 +1,43 @@
+---
+title: "fml-assignment1"
+output:
+  html_document: default
+  pdf_document: default
+date: "2023-09-10"
+---
+
+#Importing dataset by giving the path
+```{r}
+library("readxl")
+retail_sales_dataset<-read.csv("C:/Users/gandu/OneDrive/retail_sales_dataset.csv")
+View(retail_sales_dataset)
+```
+#descriptive statistics for selection of quantitative and categorical variables
+```{r}
+summary(retail_sales_dataset)
+```
+```{r}
+sd(retail_sales_dataset$Transaction.ID)
+```
+```{r}
+var(retail_sales_dataset$Age)
+```
+#Transform at least one variable
+```{r}
+retail_sales_dataset$Transaction.ID<-(retail_sales_dataset$Transaction.ID+1)
+summary(retail_sales_dataset)
+```
+#one quantitative variable
+```{r}
+hist(retail_sales_dataset$Price.per.Unit)
+```
+#one scatterplot
+```{r}
+x<-(retail_sales_dataset$Transaction.ID)
+y<-(retail_sales_dataset$Total.Amount)
+# corrected code
+plot(x,y,main ="Transaction.ID vs Total amount ",xlab ="Transaction.ID",ylab="Total.amount")
+abline(lm(y~x),col="blue")
+```
+
+
